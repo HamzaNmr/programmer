@@ -1,9 +1,9 @@
 import * as api from "../api";
 
- export const getPosts = (post) => async (dispatch) => {
+ export const getPosts = () => async (dispatch) => {
 
     try {
-        const { data } = await api.fetchPosts(post);
+        const { data } = await api.fetchPosts();
 
         dispatch({ type: 'Fetch_ALL', payload: data});
     } catch (error) {

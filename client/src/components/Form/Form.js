@@ -6,13 +6,7 @@ import useStyles from "./styles";
 import { createPost } from "../../actions/posts";
 
 const Form = () => {
-    const [postData, setPostData] = useState({
-        creator: '',
-        title: '',
-        description: '',
-        tags: '',
-        selectedFile: ''
-    });
+    const [postData, setPostData] = useState({creator: '', title: '', description: '', tags: '', selectedFile: ''});
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -37,7 +31,7 @@ const Form = () => {
                 label="Creator" 
                 fullWidth 
                 value={postData.creator} 
-                onChange={(e) => setPostData({ ...postData, creator: e.target.value})}/>
+                onChange={(e) => setPostData({ ...postData, creator: e.target.value })}/>
 
                 <TextField 
                 name="title" 
@@ -67,7 +61,7 @@ const Form = () => {
                     <FileBase
                     type="file"
                     multiple={false}
-                    onDone={(base64) => setPostData({ ...postData, selectedFile: base64 }) }
+                    onDone={({base64}) => setPostData({ ...postData, selectedFile: base64 }) }
                     />
                 </div>
 
