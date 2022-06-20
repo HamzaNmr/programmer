@@ -1,45 +1,24 @@
-import React, { useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { Container } from '@material-ui/core';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
+import Navbar from "./components/Navbar/Navbar";
+import Home from './components/Home/Home';
+import Auth from './components/Auth/Auth';
 
-import { getPosts } from "./actions/posts"
-import Posts from "./components/Posts/Posts";
-import Form from "./components/Form/Form";
-import useStyles from "./styles";
-
-import logo from "./images/logo.png";
 
 const App = () => {
 
-    const classes = useStyles();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getPosts());
-    }, [dispatch]);
-
     return (
-        <div>
-            <Container maxWidth="lg">
-                <AppBar className={classes.appBar} position='static' color='inherit'>
-                    <Typography className={classes.heading} variant='h5' align='center'>Programmer</Typography>
-                    <img className={classes.image} src={logo} alt="logo" height={30} />
-                </AppBar>
-                <Grow in>
-                    <Container>
-                        <Grid container justifyContent='space-between' alignItems='stretch' spacing={3}>
-                            <Grid item xs={12} sm={7}>
-                                <Posts />
-                            </Grid>
-                            <Grid item xs={12} sm={4}>
-                                <Form />
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </Grow>
+        <BrowserRouter>
+            <Container maxWidth="xl">
+               <Navbar />
+               <Routes>
+                  <Route path="/" exact element={<Home/>} />
+                  <Route path="/auth" exact element={<Auth/>} />
+                </Routes>
             </Container>
-        </div>
+        </BrowserRouter>
     );
 }
 
