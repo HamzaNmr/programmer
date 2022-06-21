@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose =  require('mongoose');
 
 const groupSchema = mongoose.Schema({
     name: {
@@ -15,10 +15,10 @@ const groupSchema = mongoose.Schema({
         type: Boolean,
         default: true,
     },
-    Admin: [mongoose.Types.ObjectId(_id)],
-    members: [mongoose.Types.ObjectId(_id)],
+    Admin: [],
+    members: [],
 });
 
 const GroupModel = mongoose.model('GroupModel', groupSchema);
 
-export default GroupModel;
+module.exports = GroupModel;
