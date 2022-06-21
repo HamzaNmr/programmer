@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
     firstName: {
@@ -12,6 +12,10 @@ const userSchema = mongoose.Schema({
         require: true,
     },
     password: {
+        type: String,
+        require: true,
+    },
+    email:  {
         type: String,
         require: true,
     },
@@ -30,8 +34,8 @@ const userSchema = mongoose.Schema({
     bio: String,
     profilePicture: String,
     backgroundPhoto: String,
-    followers:[mongoose.Types.ObjectId(_id)],
-    following:[mongoose.Types.ObjectId(_id)],
+    followers:[],
+    following:[],
     isAdmin:{
         type: Boolean,
         default: false,
@@ -40,4 +44,4 @@ const userSchema = mongoose.Schema({
 
 const UserModel = mongoose.model('UserModel', userSchema);
 
-export default UserModel;
+module.exports = UserModel;

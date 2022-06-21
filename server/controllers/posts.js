@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import PostModel from '../models/postModel.js'
+const mongoose = require('mongoose');
+const PostModel = require('../models/postModel.js');
 
-export const getPosts = async (req, res) => {
+ const getPosts = async (req, res) => {
     try{
         const posts = await PostModel.find();
 
@@ -11,7 +11,7 @@ export const getPosts = async (req, res) => {
     }
 };
 
-export const createPost = async (req, res) => {
+ const createPost = async (req, res) => {
     const post = req.body;
 
     const newPost = new PostModel(post);
@@ -25,7 +25,7 @@ export const createPost = async (req, res) => {
     }
 };
 
-export const updatePost = async (req, res) => {
+ const updatePost = async (req, res) => {
     const { id: _id } = req.params;
     const post = req.body;
 
@@ -36,7 +36,7 @@ export const updatePost = async (req, res) => {
      res.json(updatedPost);
 };
 
-export const deletePost = async (req, res) => {
+ const deletePost = async (req, res) => {
     const { id } = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("This post is not exist");
@@ -46,7 +46,7 @@ export const deletePost = async (req, res) => {
     res.json({ message: 'Post deleted successfuly'});
 };
 
-export const likePost = async (req, res) => {
+ const likePost = async (req, res) => {
     const { id } = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("This post is not exist");
@@ -56,3 +56,5 @@ export const likePost = async (req, res) => {
 
     res.json(updatedPost);
 };
+
+module.exports = { getPosts, createPost, updatePost, deletePost, likePost};

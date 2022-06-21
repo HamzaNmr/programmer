@@ -1,10 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from 'dotenv';
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
-import postRoutes from './routes/posts.js';
+const postRoutes = require('./routes/posts.js');
+const AuthRoutes = require('./routes/Auth.js');
+const passport = require('passport');
 
 const app = express();
 
@@ -15,6 +17,9 @@ dotenv.config();
  app.use(cors());
 
  app.use('/posts', postRoutes);
+
+ app.use('/Auth', AuthRoutes);
+ app.use(passport.initialize());
 
  const PORT = process.env.PORT || 5000;
 
