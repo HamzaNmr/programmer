@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 const postRoutes = require('./routes/posts.js');
 const AuthRoutes = require('./routes/Auth.js');
+const reportRouter = require('./routes/report')
 const passport = require('passport');
 
 const app = express();
@@ -19,6 +20,9 @@ dotenv.config();
  app.use('/posts', postRoutes);
 
  app.use('/Auth', AuthRoutes);
+
+ app.use('/report', reportRouter)
+
  app.use(passport.initialize());
 
  const PORT = process.env.PORT || 5000;
@@ -28,3 +32,19 @@ dotenv.config();
          .catch((error) => console.log(error.message));
 
 //  mongoose.set('useFindAndModify', false);
+
+
+
+
+
+
+
+
+// catch 404
+app.use((req,res,next)=>{
+    
+        let err = new Error('Please, check endPoint and try again ');
+        err.status=404;
+        next(err);
+    
+    })

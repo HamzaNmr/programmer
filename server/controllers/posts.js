@@ -57,4 +57,15 @@ const PostModel = require('../models/postModel.js');
     res.json(updatedPost);
 };
 
-module.exports = { getPosts, createPost, updatePost, deletePost, likePost};
+const displayPostByTitleOrByTags = async(req,res)=>{
+    const title = req.query.title
+    const tags = req.query.tags
+    try{
+        const DisplayPostByTitle = await PostModel.find({ $or : [{title : title}, {tags : tags}] })
+        res.json(DisplayPostByTitle)
+    }catch(error){
+        res.send(error)
+    }
+  }
+
+module.exports = { getPosts, createPost, updatePost, deletePost, likePost,displayPostByTitleOrByTags};
