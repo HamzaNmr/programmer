@@ -4,13 +4,13 @@ const reportSchema = new mongoose.Schema({
 
      userSender:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'UserModel'
        
      },
 
      userReported:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'UserModel'
       
      },
 
