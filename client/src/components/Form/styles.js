@@ -54,13 +54,10 @@ export default makeStyles((theme) => ({
       backgroundColor: "#00494D",
       letterSpacing: "3px",
     },
-  }
-  // textField:{
-  //   backgroundColor: "white",
-  //   borderRadius: 7,
-  //   '& label.Mui-focused': {
-  //     color: 'green',
-  //   },
-  // },
+  },
+  textField:{
+    backgroundColor: "#E8F0FE",
+    borderRadius: 7,
+  },
  
 }));

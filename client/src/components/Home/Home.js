@@ -97,7 +97,7 @@ const Home = () => {
                                      onChange={(e) => setSearch(e.target.value)}
                                     />
                                     <ChipInput 
-                                    className={classes.textField}
+                                    // className={classes.textField}
                                     variant="outlined"
                                     style={{padding: "5px 10px"}}  
                                     placeholder="Search by tags"
