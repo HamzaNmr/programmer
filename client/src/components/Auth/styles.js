@@ -44,13 +44,10 @@ export default makeStyles((theme) => ({
   gridContainer:{
     marginTop: "99px",
   },
-  // textField:{
-  //   backgroundColor: "white",
-  //   borderRadius: 7,
-  //   '& label.Mui-focused': {
-  //     color: 'green',
-  //   },
-  // },
+  textField:{
+    backgroundColor: "#E8F0FE",
+    borderRadius: 7,
+  },
   // signinORup:{
   //   color: "white",
   // }
