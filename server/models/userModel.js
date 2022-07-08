@@ -4,20 +4,21 @@ const userSchema = mongoose.Schema({
     firstName: {
         type: String,
         match: /[a-z]/,
-        require: true,
+        required: true,
     },
     lastName:{
         type: String,
         match: /[a-z]/,
-        require: true,
+        required: true,
     },
+    name: String,
     password: {
         type: String,
-        require: true,
+        required: true,
     },
     email:  {
         type: String,
-        require: true,
+        required: true,
     },
     age: {
         type: Number,

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import { TextField, Button, Typography, Paper, Hidden } from "@material-ui/core";
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
+import { alpha, styled } from '@mui/material/styles';
 import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
-    const [postData, setPostData] = useState({creator: '', title: '', description: '', tags: '', selectedFile: ''});
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
-
+    const [postData, setPostData] = useState({title: '', description: '', tags: '', selectedFile: ''});
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
+    const user = JSON.parse(localStorage.getItem('profile'));
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -21,9 +22,11 @@ const Form = ({ currentId, setCurrentId }) => {
         e.preventDefault();
 
         if(currentId){
-            dispatch(updatePost(currentId, postData));
+            dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
+         
         }else{
-            dispatch(createPost(postData));
+            dispatch(createPost({ ...postData, name: user?.result?.name }));
+          
         }
 
         clear();
@@ -31,22 +34,30 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(null);
-        setPostData({ creator: '', title: '', description: '', tags: '', selectedFile: '' });
+        setPostData({ title: '', description: '', tags: '', selectedFile: '' });
+    }
+
+
+    
+      
+
+    if(!user?.result?.name){
+        return (
+            <Paper className={classes.paper}>
+                <Typography variant="h6" align="center">
+                    You are our guest for now, so please Sign In to join us and be member in our special world.
+                </Typography>
+            </Paper>
+        )
     }
 
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={ `${classes.root} ${classes.form}` } onSubmit={handleSubmit}>
-                <Typography variant="h6">{currentId ? 'Edit' : 'Create' } a post</Typography>
+                <Typography variant="h6" style={{fontWeight: 700}}>{currentId ? 'Edit' : 'Create' } a post</Typography>
+               
                 <TextField 
-                name="creator" 
-                variant="outlined" 
-                label="Creator" 
-                fullWidth 
-                value={postData.creator} 
-                onChange={(e) => setPostData({ ...postData, creator: e.target.value })}/>
-
-                <TextField 
+                className={classes.textField}
                 name="title" 
                 variant="outlined" 
                 label="Title" 
@@ -55,6 +66,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 onChange={(e) => setPostData({ ...postData, title: e.target.value})}/>
 
                 <TextField 
+                className={classes.textField}
                 name="description" 
                 variant="outlined" 
                 label="Description" 
@@ -63,8 +75,9 @@ const Form = ({ currentId, setCurrentId }) => {
                 onChange={(e) => setPostData({ ...postData, description: e.target.value})}/>
 
                 <TextField 
+                className={classes.textField}
                 name="tags" 
-                variant="outlined" 
+                variant="outlined"
                 label="Tags" 
                 fullWidth 
                 value={postData.tags} 
@@ -78,8 +91,8 @@ const Form = ({ currentId, setCurrentId }) => {
                     />
                 </div>
 
-                <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
-                <Button variant="contained" color="secondary" size="small" fullWidth onClick={clear}> Clear </Button>
+                <Button className={classes.buttonSubmit} variant="contained" size="large" type="submit" fullWidth> Submit </Button>
+                <Button variant="contained"  size="small" fullWidth onClick={clear} className={classes.clearButton}> Clear </Button>
             </form>
         </Paper>
     );

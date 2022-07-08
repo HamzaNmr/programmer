@@ -8,35 +8,46 @@ import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 
 
-
+import { signin, signup } from '../../actions/auth';
 import Input from "./Input";
-import Icon from "./icon";
+import GoogleIcon from "./googleIcon";
+import GitHubIcon from "./gitHubIcon";
 
 const clientId = "446964368305-8tjrn0o40270e2fjblfkt4051a1v598o.apps.googleusercontent.com";
+
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
 
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
+    const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => ! prevShowPassword);
 
-    const handleSubmit = () => {
+    
 
-    };
-
-    const handleChange = () => {
-
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value});
     };
 
     const switchMode = () => {
-        setIsSignup((pervIsSignup) => !pervIsSignup );
-        handleShowPassword(false);
+        setIsSignup((prevIsSignup) => !prevIsSignup );
+        setShowPassword(false);
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+        if(isSignup){
+            dispatch(signup(formData, navigate));
+        }else{
+            dispatch(signin(formData, navigate));
+        }
+    };
   
     const googleSuccess = async (res) => {
         // console.log(res);
@@ -70,8 +81,8 @@ const Auth = () => {
     })
     
     return (
-        <Container component="main" maxWidth="xs">
-            <Paper className={classes.paper} elevation={3}>
+        <Container component="main" maxWidth="xs" className={classes.gridContainer}>
+            <Paper className={classes.paper} elevation={3} raised>
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
@@ -80,26 +91,28 @@ const Auth = () => {
                     <Grid container spacing={2}>
                         { isSignup && (
                                 <>
-                                <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half/>
-                                <Input name="lastName" label="Last Name" handleChange={handleChange} half/>
+                                <Input name="firstName" type="text" label="First Name" handleChange={handleChange} autoFocus half/>
+                                <Input name="lastName" type="text" label="Last Name" handleChange={handleChange} half/>
                                 </>
                             )}
-                        <Input name="email" label="Email Address" handelChange={handleChange} type="email"/>
-                        <Input name="password" label="Password" handelChange={handleChange} type={showPassword ? "text" : "password" } handleShowPassword={handleShowPassword}/>
-                        { isSignup && <Input name="confirm" label="Repeat password" handleChange={handleChange} type="password"/> }
+                        <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
+                        <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password" } handleShowPassword={handleShowPassword} />
+                        { isSignup && <Input name="confirmPassword" label="Repeat password" handleChange={handleChange} type="password" /> }
 
                     </Grid>
-                    <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} >
+                    <Button type="submit" fullWidth variant="contained"  className={classes.submit} >
                         {
                             isSignup ? "Sign Up" : "Sign In"
                         }
                     </Button>
 
-                    <GoogleLogin
+                    <Grid container justifyContent='space-between' alignItems='stretch' spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                        <GoogleLogin
                     clientId= {clientId}
                     render={(renderProps) => (
-                        <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained" >
-                            Google Sign In
+                        <Button className={classes.googleButton} fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<GoogleIcon />} variant="contained" >
+                            Google
                         </Button>
                     )}
                     onSuccess={googleSuccess}
@@ -107,10 +120,17 @@ const Auth = () => {
                     cookiePolicy="single_host_origin"
                     // isSignedIn= {true}
                      />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Button variant="contained" fullWidth startIcon={<GitHubIcon/>}  style={{background: "#E0E0E0"}}>
+                                GitHub
+                            </Button>
+                        </Grid>
+                    </Grid>
 
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Button onClick={switchMode}>
+                            <Button onClick={switchMode} className={classes.signinORup}>
                                 { isSignup ? "Already have an account?  Sign In" : "Don't have an account?  Sign Up"}
                             </Button>
                         </Grid>

@@ -4,12 +4,17 @@ import React from "react";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-const Input = ({ name, handelChange, handleShowPassword, label, half, autoFocus, type }) => {
+import useStyles from "./styles";
+
+const Input = ({ name, handleChange, handleShowPassword, label, half, autoFocus, type }) => {
+    const classes = useStyles();
    return(
+
         <Grid item xs={12} sm={half ? 6 : 12}>
             <TextField 
+            className={classes.textField}
              name={name}
-             onChange={handelChange}
+             onChange={handleChange}
              variant="outlined"
              required
              fullWidth

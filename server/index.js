@@ -5,8 +5,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 const postRoutes = require('./routes/posts.js');
-const AuthRoutes = require('./routes/Auth.js');
+const AuthRoutes = require('./routes/users.js');
 const passport = require('passport');
+
 
 const app = express();
 
@@ -17,8 +18,8 @@ dotenv.config();
  app.use(cors());
 
  app.use('/posts', postRoutes);
-
- app.use('/Auth', AuthRoutes);
+ 
+ app.use('/user', AuthRoutes);
  app.use(passport.initialize());
 
  const PORT = process.env.PORT || 5000;

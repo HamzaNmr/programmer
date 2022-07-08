@@ -1,56 +1,69 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { deepPurple } from "@material-ui/core/colors";
+import { deepPurple, blue } from "@material-ui/core/colors";
 
  export default makeStyles((theme) => ({
     appBar: {
-        borderRadius: 15,
-        margin: '30px 0',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '10px 30px',
-    },
-    heading: {
-        color: 'rgba(108, 52, 131, 1)'
+        padding: '0 30px',
+        backgroundColor: "#00494D",
+        color: "#eee",
+        position: 'fixed',
+        top: 0,
+        left: 0,
     },
     image: {
         marginLeft: '10px',
         marginTop: '5px',
       },
       toolbar: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-        width: '400px',
-        [theme.breakpoints.down('sm')]: {
-          width: 'auto',
-        },
+        dispaly: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
       },
       profile: {
         display: 'flex',
-        justifyContent: 'space-between',
-        width: '400px',
         alignItems: 'center',
+        color: '#eee',
         [theme.breakpoints.down('sm')]: {
           width: 'auto',
-          marginTop: 20,
-          justifyContent: 'center',
+          height: 'auto',
         },
       },
-      logout: {
-        marginLeft: '20px',
-      },
+     
       userName: {
-        display: 'flex',
-        alignItems: 'center',
-        textAlign: 'center',
+        marginLeft: "10px",
       },
+
+      signinButton: {
+        marginLeft: "10px",
+        backgroundColor:"#26C0AB",
+        color: "#00494D",
+        fontWeight:"500",
+        '&:hover': {
+          backgroundColor: "#eee",
+        },
+      },
+
       brandContainer: {
         display: 'flex',
         alignItems: 'center',
       },
-      purple: {
-        color: theme.palette.getContrastText(deepPurple[500]),
-        backgroundColor: deepPurple[500],
+      avatar: {
+        // color: theme.palette.getContrastText(blue[900]),
+        color: "#333",
+        background:"linear-gradient(120deg, #0172dd, white)",
+        marginLeft: "10px",
       },
+      spaces: {
+        dispaly: 'flex',
+        // gap: "20px",
+      },
+      menu: {
+        marginTop: '60px',
+      },
+      navBarItem:{
+        transition: 'all 0.7s ease',
+        '&:hover':{
+          transform: 'scale(1.1)',
+        }
+      }
  }));

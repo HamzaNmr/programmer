@@ -1,12 +1,12 @@
 const express = require('express');
 const passport = require('passport');
-const { registerPost, loginPost } = require('../controllers/Auth.js');
+const { signup, signin } = require('../controllers/user.js');
 require("../passportJwt.js");
 
 const router = express.Router();
 
-router.post('/register', registerPost);
-router.post('/login', loginPost);
+router.post('/signup', signup);
+router.post('/signin', signin);
 
 router.get('/protected', passport.authenticate("jwt", { session: false }), (req, res) => {
     return res.status(200).send({
