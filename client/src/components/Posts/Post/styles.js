@@ -20,6 +20,8 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
+    // backgroundColor: "#252830",
+    // color: "#eee",
   },
   overlay: {
     position: 'absolute',
@@ -30,7 +32,7 @@ export default makeStyles({
   overlay2: {
     position: 'absolute',
     top: '20px',
-    right: '20px',
+    right: '10px',
     color: 'white',
   },
   grid: {
@@ -40,9 +42,14 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     margin: '20px',
+    color: "#26C0AB",
+    opacity: 0.8,
   },
   title: {
     padding: '0 16px',
+  },
+  description: {
+    color: "#333",
   },
   cardActions: {
     padding: '0 16px 8px 16px',
