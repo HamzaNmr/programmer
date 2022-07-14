@@ -1,0 +1,57 @@
+h1, h2, h3{
+    position: relative;
+    /* width: max-content; */
+    font-weight: lighter;
+}
+
+
+  h1::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    animation: typerh1 7s steps(50) forwards;
+}
+
+@keyframes typerh1 {
+    to{
+        left: 100%;
+    }
+}
+
+h3::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    animation: typerh3 7s steps(50) forwards 5s;
+}
+
+@keyframes typerh3 {
+    to{
+        left: 100%;
+    }
+}
+
+h2::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    animation: typerh3 7s steps(50) forwards 9s;
+}
+
+@keyframes typerh3 {
+    to{
+        left: 100%;
+    }
+}

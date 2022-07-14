@@ -56,7 +56,9 @@ export default makeStyles((theme) => ({
         width: "330px",
         paddingRight: "15px",
         paddingBottom: "10px",
-        overflowY: "auto",
+        overflow:  'auto',
+        padding: '5px 10px',
+       
         [theme.breakpoints.down('xs')]:{
          position:'static',
          width: "100%",

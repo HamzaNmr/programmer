@@ -3,8 +3,9 @@ import { TextField, Button, Typography, Paper, Hidden } from "@material-ui/core"
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
-import { alpha, styled } from '@mui/material/styles';
 import { createPost, updatePost } from "../../actions/posts";
+
+import { useNavigate } from "react-router-dom";
 
 const Form = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({title: '', description: '', tags: '', selectedFile: ''});
@@ -12,6 +13,7 @@ const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'));
     const classes = useStyles();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(post) setPostData(post);
@@ -25,7 +27,7 @@ const Form = ({ currentId, setCurrentId }) => {
             dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
          
         }else{
-            dispatch(createPost({ ...postData, name: user?.result?.name }));
+            dispatch(createPost({ ...postData, name: user?.result?.name }, navigate));
           
         }
 

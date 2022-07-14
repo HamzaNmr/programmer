@@ -32,7 +32,7 @@ const ProfileCard = () => {
           alt="background image"
         />
         <div className={classes.overlay}>
-        <Avatar  alt={user?.result?.name} src={user?.result?.imageUrl} sx={{ width: 70, height: 70 }}>
+        <Avatar  alt={user?.result?.name} src={user?.result?.imageUrl} sx={{ width: 70, height: 70, boxShadow: '0px 12px 60px -9px rgba(0,0,0,0.7)',}}>
                         {user.result.name.charAt(0)}
                     </Avatar>
         </div>
@@ -47,13 +47,15 @@ const ProfileCard = () => {
             <Grid item lg={6}>
             <Typography variant="body2" className={classes.follow} >
             FOLLOWERS 
-            <p>2</p>
+            <br/>
+            2
            </Typography>
             </Grid>
             <Grid item lg={6}>
             <Typography variant="body2"  className={classes.follow}>
             FOLLOWING
-            <p>2</p>
+            <br/>
+            2
             </Typography>
             </Grid>
           </Grid>

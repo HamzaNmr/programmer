@@ -8,6 +8,7 @@ import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import  Pagination  from "../pagination";
+import AvatarGroup from "../AvatarGroups/AvatarGroups";
 import { ClassNames } from "@emotion/react";
 import useStyles from "./styles";
 
@@ -69,9 +70,10 @@ const Home = () => {
                     <Container maxWidth="xl" className={classes.container}>
                         <Grid container justifyContent='space-between' alignItems='stretch' spacing={3} className={ClassNames.gridContainer}>
                            
-                            <Grid item xs={12} sm >
+                            <Grid item xs={12} sm={3} >
                                <Box className={classes.fixedPart}>
-                               <ProfileCard fullWidth />
+                               <ProfileCard />
+                               <AvatarGroup />
                                 {/* <Paper className={classes.pagination} elevation={3}>
                                     <Pagination/>
                                 </Paper> */}
@@ -82,7 +84,7 @@ const Home = () => {
                                 <Posts setCurrentId={setCurrentId} />
                             </Grid>
 
-                            <Grid item xs={12} sm >
+                            <Grid item xs={12} sm={3} >
                            <Box className={classes.fixedPart}>
                            <Paper className={`${classes.appBarSearch} ${classes.root}`}  color="inherit" elevation={3}>
                                     <Typography variant="h6" style={{fontWeight: 700}}>Search</Typography>
