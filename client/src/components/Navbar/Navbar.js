@@ -12,6 +12,23 @@ import useStyles from "./styles";
 import { styled } from '@mui/material/styles';
 
 
+import Drawer from '@mui/material/Drawer';
+
+import List from '@mui/material/List';
+
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import BlurCircularIcon from '@mui/icons-material/BlurCircular';
+
+
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 // import logo from "../../images/logo.png";
@@ -40,16 +57,16 @@ const Navbar = () => {
 
 
     
-        const [anchorEl, setAnchorEl] = useState(null);
-        const open = Boolean(anchorEl);
+    //     const [anchorEl, setAnchorEl] = useState(null);
+    //     const open = Boolean(anchorEl);
 
-        const handleClick = (event) => {
-          setAnchorEl(event.currentTarget);
-        };
+    //     const handleClick = (event) => {
+    //       setAnchorEl(event.currentTarget);
+    //     };
 
-        const handleClose = () => {
-          setAnchorEl(null);
-        };
+    //     const handleClose = () => {
+    //       setAnchorEl(null);
+    //     };
 
     console.log(user);
     const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -61,6 +78,89 @@ const Navbar = () => {
         color:'white',
       },
     }));
+
+    
+
+
+    const [state, setState] = React.useState({
+      top: false,
+      left: false,
+      bottom: false,
+      right: false,
+    });
+  
+    const toggleDrawer = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+  
+      setState({ ...state, [anchor]: open });
+    };
+  
+    const list = (anchor) => (
+      <Box
+        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+        <List>
+          
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl} onClick={toggleDrawer('right', true)}>
+                        {user.result.name.charAt(0)}
+                </Avatar>
+                </ListItemIcon>
+                <ListItemText>{user?.result?.name}</ListItemText>
+              </ListItemButton>
+            </ListItem>
+
+        </List>
+        <Divider />
+        <List>
+
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                <GroupsOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText>Groups</ListItemText>
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                 <LightModeOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText>Theme</ListItemText>
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                 <SettingsApplicationsIcon />
+                </ListItemIcon>
+                <ListItemText>Setting</ListItemText>
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+              <ListItemButton onClick={logout}>
+                <ListItemIcon>
+                 <ExitToAppIcon sx={{color:'red'}} />
+                </ListItemIcon>
+                <ListItemText>Logout</ListItemText>
+              </ListItemButton>
+            </ListItem>
+          
+        </List>
+      </Box>
+    );
+
     return(
         <AppBar className={classes.appBar} position='sticky' color='inherit'>
 
@@ -75,13 +175,13 @@ const Navbar = () => {
           
           {user &&  <Box sx={{display:"flex", alignItems:"center", gap: "70px"}}>
   
-          <Tooltip title="News"><BlurOnOutlinedIcon sx={{ fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
+          <Tooltip title="News"><BlurOnOutlinedIcon onClick={() => navigate('/news', {replace: true})} sx={{ fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
   
-   <StyledBadge badgeContent={0}>
+   <StyledBadge badgeContent={0} overlap="rectangular">
    <Tooltip title="Video call"><SlowMotionVideoOutlinedIcon sx={{fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
     </StyledBadge>
   
-    <StyledBadge badgeContent={0}>
+    <StyledBadge badgeContent={0} overlap="rectangular">
     <Tooltip title="Notfications"><CircleNotificationsOutlinedIcon sx={{fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
     </StyledBadge>
   
@@ -93,22 +193,30 @@ const Navbar = () => {
             {user ? (
                 <div className={classes.profile}>
 
-                    <Tooltip title="Open setting">
-                    <IconButton
+                    <Tooltip title="Profile settings">
+                    {/* <IconButton
             onClick={handleClick}
             size="small"
             sx={{ ml: 2 }}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-          >
-                    <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl}>
+          > */}
+                    <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl} onClick={toggleDrawer('right', true)}>
                         {user.result.name.charAt(0)}
                     </Avatar>
-                </IconButton>
+                {/* </IconButton> */}
                     </Tooltip>
+
+          <Drawer
+            anchor={'right'}
+            open={state['right']}
+            onClose={toggleDrawer('right', false)}
+          >
+            {list('right')}
+          </Drawer>
                     
-                    <Menu className={classes.menu}
+                    {/* <Menu className={classes.menu}
         anchorEl={anchorEl}
         id="account-menu"
         open={open}
@@ -162,7 +270,7 @@ const Navbar = () => {
           </ListItemIcon>
           Logout
         </MenuItem>
-      </Menu>
+      </Menu> */}
                 
                 </div>
             ) : (

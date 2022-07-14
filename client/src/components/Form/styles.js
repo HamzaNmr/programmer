@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
     color: "#00494D",
     // position: 'fixed',
     // top: "37%",
-    width:"304px",
+    width:"307px",
     [theme.breakpoints.down('xs')]:{
       
       width: "93%",
