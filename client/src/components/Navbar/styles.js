@@ -39,7 +39,7 @@ import { deepPurple, blue } from "@material-ui/core/colors";
         color: "#00494D",
         fontWeight:"500",
         '&:hover': {
-          backgroundColor: "#eee",
+          backgroundColor: "#C5E4E7",
         },
       },
 
@@ -50,7 +50,7 @@ import { deepPurple, blue } from "@material-ui/core/colors";
       avatar: {
         // color: theme.palette.getContrastText(blue[900]),
         color: "#333",
-        background:"linear-gradient(120deg, #0172dd, white)",
+        background:"#eee",
         marginLeft: "10px",
       },
       spaces: {
