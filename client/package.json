@@ -24,6 +24,7 @@
     "material-ui-chip-input": "^1.1.0",
     "moment": "^2.29.3",
     "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-file-base64": "^1.0.3",
     "react-google-login": "^5.2.2",
@@ -35,6 +36,8 @@
     "redux": "^4.2.0",
     "redux-core": "^0.1.1",
     "redux-thunk": "^2.4.1",
+    "simple-peer": "^9.11.1",
+    "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
     "words-to-numbers": "^1.5.1"

@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
-import { Paper } from '@material-ui/core';
+import { Paper, Divider } from '@material-ui/core';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -61,12 +61,54 @@ const AvatarGroups = () => {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="spring-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            
+            <Typography variant='h5'>Etended Groups :</Typography>
+            <br/>
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>Trevor Henderson</Typography>
+            <Typography variant='subtitle2'>front end group</Typography>
+            </div>
+            </div>
+
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>Trevor Henderson</Typography>
+            <Typography variant='subtitle2'>front end group</Typography>
+            </div>
+            </div>
+
+            <div style={{display: 'flex', alignItems: 'center',  marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>Trevor Henderson</Typography>
+            <Typography variant='subtitle2'>front end group</Typography>
+            </div>
+            </div>
+
+
+            <Divider style={{marginBlock: '1rem'}}/>
+
+
+             <Typography variant='h5'>Recommended Groups :</Typography>
+            <br/>
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>Trevor Henderson</Typography>
+            <Typography variant='subtitle2'>front end group</Typography>
+            </div>
+            </div>
+
+            <div style={{display: 'flex', alignItems: 'center',  marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>Trevor Henderson</Typography>
+            <Typography variant='subtitle2'>front end group</Typography>
+            </div>
+            </div>
           </Box>
         </Fade>
       </Modal>

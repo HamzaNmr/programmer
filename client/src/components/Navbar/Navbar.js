@@ -178,7 +178,7 @@ const Navbar = () => {
           <Tooltip title="News"><BlurOnOutlinedIcon onClick={() => navigate('/news', {replace: true})} sx={{ fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
   
    <StyledBadge badgeContent={0} overlap="rectangular">
-   <Tooltip title="Video call"><SlowMotionVideoOutlinedIcon sx={{fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
+   <Tooltip title="Video call"><SlowMotionVideoOutlinedIcon onClick={() => navigate('/videoCall', {replace: true})} sx={{fontSize: "40px", color:"#eee", cursor: "pointer",}} className={classes.navBarItem} /></Tooltip>
     </StyledBadge>
   
     <StyledBadge badgeContent={0} overlap="rectangular">
