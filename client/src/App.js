@@ -8,6 +8,7 @@ import Auth from './components/Auth/Auth';
 import PostDetails from './components/PostDetails/PostDetails';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
+import VideoCall from './components/VideoCall/VideoCall';
 
 
 
@@ -45,6 +46,7 @@ const App = () => {
                   <Route path="/auth" exact element={<Auth/>} />
                   <Route path="/profile" exact element={<Profile/>} />
                   <Route path="/news" exact element={<News/>} />
+                  <Route path="/videoCall" exact element={<VideoCall/>} />
                 </Routes>
                 </Container>
         </BrowserRouter>

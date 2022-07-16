@@ -10,7 +10,7 @@ const groupSchema = mongoose.Schema({
     bio: String,
     profilePicture: String,
     backgroundPhoto: String,
-    posts: [mongoose.Types.ObjectId(_id)],
+    posts: [],
     isPublic: {
         type: Boolean,
         default: true,
