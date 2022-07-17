@@ -12,6 +12,7 @@ import { signin, signup } from '../../actions/auth';
 import Input from "./Input";
 import GoogleIcon from "./googleIcon";
 import GitHubIcon from "./gitHubIcon";
+import Earth from "./Earth";
 
 const clientId = "446964368305-8tjrn0o40270e2fjblfkt4051a1v598o.apps.googleusercontent.com";
 
@@ -137,6 +138,8 @@ const Auth = () => {
                     </Grid>
                 </form>
             </Paper>
+
+            <Earth />
         </Container>
     );
 }
