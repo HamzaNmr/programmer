@@ -4,7 +4,7 @@ import NewsCards from '../NewsCards/NewsCards';
 
 import { useNavigate } from 'react-router-dom';
 
-import alanBtn from '@alan-ai/alan-sdk-web';
+// import alanBtn from '@alan-ai/alan-sdk-web';
 
 // import useStyles from './styles';
 

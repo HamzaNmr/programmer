@@ -19,14 +19,8 @@ dotenv.config();
  app.use(cors());
 
  app.use('/posts', postRoutes);
-<<<<<<< HEAD
- app.use('/groups', groupRoutes);
-
- app.use('/Auth', AuthRoutes);
-=======
  
  app.use('/user', AuthRoutes);
->>>>>>> 1fba1e64aa274b1759ea8bf42747fdf1bd7f424a
  app.use(passport.initialize());
 
  const PORT = process.env.PORT || 5000;
