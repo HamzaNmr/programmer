@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
  
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     avatar:{
         width: '7rem',
         height: '7rem',
@@ -14,7 +14,7 @@ export default makeStyles(() => ({
     overlayName: {
         position:'absolute',
         top: '48.8%',
-        left: '27%',
+        left: '32%',
         transform: 'translate(-50%, -50%)',
     },
 
@@ -23,5 +23,29 @@ export default makeStyles(() => ({
         borderRadius: '15px',
         padding:'20px 30px',
         color: '#00494D',
-    }
+    },
+
+    EditButton: {
+        borderRadius: 7,
+        marginBottom: 10,
+        backgroundColor: "#26C0AB",
+        color:"#00494D",
+        fontWeight:"600",
+        transition: ".5s ease",
+        '&:hover': {
+          backgroundColor: "#C5E4E7",
+        },
+      },
+
+      FollowButton: {
+        borderRadius: 7,
+        marginLeft: '1.3rem',
+        backgroundColor: "#26C0AB",
+        color:"#00494D",
+        fontWeight:"600",
+        transition: ".5s ease",
+        '&:hover': {
+          backgroundColor: "#C5E4E7",
+        },
+      },
 }));
