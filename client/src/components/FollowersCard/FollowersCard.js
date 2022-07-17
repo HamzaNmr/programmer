@@ -5,7 +5,8 @@ import useStyles from './styles';
 const FollowersCard = () => {
   return (
     
-    <Paper style={{padding: '20px 30px', borderRadius: '15px', border: '3px solid #00494D', height: '370px', overflow: 'auto',}}>
+    <Paper style={{padding: '20px 30px', borderRadius: '15px', border: '3px solid #00494D', height: '370px',width:'273px', overflow: 'auto',}}>
+
         
             <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
             <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" style={{width: 50, height: 50, marginRight: '1.5rem'}}/>

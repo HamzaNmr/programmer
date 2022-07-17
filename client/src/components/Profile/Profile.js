@@ -7,6 +7,16 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
+import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
+import InsertInvitationOutlinedIcon from '@mui/icons-material/InsertInvitationOutlined';
+import WcOutlinedIcon from '@mui/icons-material/WcOutlined';
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+import HardwareOutlinedIcon from '@mui/icons-material/HardwareOutlined';
+import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';
 import useStyles from './styles';
 
 import All from './All';
@@ -55,8 +65,10 @@ const style = {
         <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl} classeName={classes.avatar}>
                         {user.result.name.charAt(0)}
         </Avatar>
-        <Typography variant='h5' className={classes.overlayName}>Hamza Nemer</Typography>
-      
+        <Typography variant='h5' className={classes.overlayName}>
+          Hamza Nemer
+         <Button variant='contained' className={classes.FollowButton} endIcon={<AddTaskOutlinedIcon/>}>Follow</Button>
+         </Typography>
 
       <Grid item xs={12} sm={12}>
         <Paper elevation={0} className={classes.info}>
@@ -64,7 +76,7 @@ const style = {
 
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
              <Typography variant='h5' style={{marginBottom: '1rem',}}>user's information</Typography>
-             <Button variant='contained' color='primary' onClick={handleOpen}>Edit</Button>
+             <Button variant='contained' className={classes.EditButton} startIcon={<ModeEditOutlineOutlinedIcon/>} onClick={handleOpen}>Edit profile</Button>
 
              <Modal
         aria-labelledby="spring-modal-title"
@@ -100,19 +112,29 @@ const style = {
           <Input name="skills" label="Skills" type="text" half/>
           </div>
 
-          <div style={{display: 'flex',  gap:2}}>
-            <Typography variant='subtile1' style={{marginRight: '1rem'}}>Picture Profile : </Typography>
+          <div style={{display: 'flex', gap:2}}>
+            <Typography variant='subtile1' style={{marginRight: '1rem',display: 'flex', alignItems:'center' }}>
+              Picture Profile : 
+            </Typography>
+            
                     <FileBase
                     type="file"
                     multiple={false}
                     onDone={ {} }
                     />
-            <Typography variant='subtile1' style={{marginRight: '1rem'}}>Backgound Image : </Typography>
+            <Typography variant='subtile1' style={{marginRight: '1rem',display: 'flex', alignItems:'center' }}> 
+              Backgound Image : 
+            </Typography>
+            
                     <FileBase
                     type="file"
                     multiple={false}
                     onDone={ {} }
                     />
+                </div>
+
+                <div style={{width:"100%", display: "flex", justifyContent: 'flex-end', marginTop: '2rem'}}>
+                  <Button variant='contained' className={classes.EditButton} startIcon={<SaveAsOutlinedIcon/>}>Save changes</Button>
                 </div>
 
           </Box>
@@ -123,11 +145,11 @@ const style = {
           </div>
 
 
-          <Typography variant='subtitle1'>Age: 22</Typography>
-          <Typography variant='subtitle1'>Gender: Male</Typography>
-          <Typography variant='subtitle1'>Major: Web developer</Typography>
-          <Typography variant='subtitle1'>Experience: 1 year</Typography>
-          <Typography variant='subtitle1'>Skills: React, js</Typography>
+          <Typography variant='subtitle1' style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><InsertInvitationOutlinedIcon/> Age: 22</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><WcOutlinedIcon/> Gender: Male</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><WorkOutlineOutlinedIcon/> Major: Web developer</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><HardwareOutlinedIcon/> Experience: 1 year</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,}}><BallotOutlinedIcon/> Skills: React, js</Typography>
 
         </Paper>
 

@@ -32,7 +32,7 @@ const ProfileCard = () => {
           alt="background image"
         />
         <div className={classes.overlay}>
-        <Avatar  alt={user?.result?.name} src={user?.result?.imageUrl} sx={{ width: 70, height: 70, boxShadow: '0px 12px 60px -9px rgba(0,0,0,0.7)', border: '2px solid #eee',}}>
+        <Avatar  alt={user?.result?.name} src={user?.result?.imageUrl} sx={{ width: 70, height: 70, border: '5px solid white',}}>
                         {user.result.name.charAt(0)}
                     </Avatar>
         </div>
