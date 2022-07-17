@@ -1,5 +1,6 @@
 import React from 'react';
 import FileBase from 'react-file-base64';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 
 import { Container, Button, Typography, Paper, Avatar, Grid, Grow } from '@material-ui/core';
@@ -17,6 +18,7 @@ import WcOutlinedIcon from '@mui/icons-material/WcOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import HardwareOutlinedIcon from '@mui/icons-material/HardwareOutlined';
 import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import useStyles from './styles';
 
 import All from './All';
@@ -27,6 +29,22 @@ import bgImg from '../../images/news.jpg';
 
 
 const style = {
+  position: 'absolute',
+  top: '55%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 900,
+  height: 'auto',
+  backgroundColor: '#C5E4E7',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: '15px',
+  display: 'flex',
+  flexDirection: 'column',
+  gap:2,
+};
+
+const styleReport = {
   position: 'absolute',
   top: '55%',
   left: '50%',
@@ -53,6 +71,11 @@ const style = {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [openReport, setOpenReport] = React.useState(false);
+  const handleOpenReport = () => setOpenReport(true);
+  const handleCloseReport = () => setOpenReport(false);
+
+
 
   return (
     <Grow in>
@@ -60,7 +83,7 @@ const style = {
 
       <Grid container>
         <Grid item xs={12} md={12}>
-          <img src={bgImg} alt="background image" style={{width: '100%', height:'230px', borderRadius:'15px', objectFit:'cover',}}/>
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNZtv3tZBDlzJJ7U6Oon-jgHDNB3UqkRfmsA&usqp=CAU' alt="background image" style={{width: '100%', height:'230px', borderRadius:'15px', objectFit:'cover',}}/>
         </Grid>
         <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl} classeName={classes.avatar}>
                         {user.result.name.charAt(0)}
@@ -68,6 +91,37 @@ const style = {
         <Typography variant='h5' className={classes.overlayName}>
           Hamza Nemer
          <Button variant='contained' className={classes.FollowButton} endIcon={<AddTaskOutlinedIcon/>}>Follow</Button>
+         <Button variant='contained' color='secondary' endIcon={<ReportGmailerrorredIcon/>} style={{marginInline:'1rem'}} onClick={handleOpenReport}>report</Button>
+
+         <Modal
+        aria-labelledby="spring-modal-title"
+        aria-describedby="spring-modal-description"
+        open={openReport}
+        onClose={handleCloseReport}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openReport}>
+          <Box sx={styleReport}>
+            <Typography variant='subtitle1'>
+              Please explain why do you want report this user, and make your description clear and indicated for a specific reason.
+            </Typography>
+            <TextareaAutosize
+               aria-label="minimum height"
+                minRows={10}
+               placeholder="Description"
+                style={{ width: '93%', border: '2px solid rgba(230,0,0,0.5)', borderRadius:7, padding:'20px 30px'}}
+                />
+                <div style={{width:"100%", display: "flex", justifyContent: 'flex-end', marginTop: '2rem'}}>
+                  <Button variant='contained' color="secondary" startIcon={<ReportGmailerrorredIcon/>}>submit</Button>
+                </div>
+          </Box>
+        </Fade>
+          </Modal>
+
          </Typography>
 
       <Grid item xs={12} sm={12}>
@@ -112,6 +166,10 @@ const style = {
           <Input name="skills" label="Skills" type="text" half/>
           </div>
 
+          <div style={{display: 'flex',  gap:2}}>
+          <Input name="bio" label="Bio" type="text" />
+          </div>
+
           <div style={{display: 'flex', gap:2}}>
             <Typography variant='subtile1' style={{marginRight: '1rem',display: 'flex', alignItems:'center' }}>
               Picture Profile : 
@@ -145,11 +203,13 @@ const style = {
           </div>
 
 
+          
           <Typography variant='subtitle1' style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><InsertInvitationOutlinedIcon/> Age: 22</Typography>
           <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><WcOutlinedIcon/> Gender: Male</Typography>
           <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><WorkOutlineOutlinedIcon/> Major: Web developer</Typography>
           <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><HardwareOutlinedIcon/> Experience: 1 year</Typography>
-          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,}}><BallotOutlinedIcon/> Skills: React, js</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><BallotOutlinedIcon/> Skills: React, js</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,}}><BallotOutlinedIcon/> Bio: I'm a web developer with some experience in front-end and back-end. i work in React you can say i'am a full stack web developer (MERN)</Typography>
 
         </Paper>
 
