@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
     overlayName: {
         position:'absolute',
         top: '48.8%',
-        left: '32%',
+        left: '36%',
         transform: 'translate(-50%, -50%)',
     },
 
