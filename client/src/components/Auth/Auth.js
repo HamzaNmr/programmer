@@ -12,11 +12,13 @@ import { signin, signup } from '../../actions/auth';
 import Input from "./Input";
 import GoogleIcon from "./googleIcon";
 import GitHubIcon from "./gitHubIcon";
-import Earth from "./Earth";
+
+import Animation from "./Animation";
 
 const clientId = "446964368305-8tjrn0o40270e2fjblfkt4051a1v598o.apps.googleusercontent.com";
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+
 
 const Auth = () => {
 
@@ -83,6 +85,9 @@ const Auth = () => {
     
     return (
         <Container component="main" maxWidth="xs" className={classes.gridContainer}>
+
+            <Animation/>
+
             <Paper className={classes.paper} elevation={3} raised>
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
@@ -139,7 +144,6 @@ const Auth = () => {
                 </form>
             </Paper>
 
-            <Earth />
         </Container>
     );
 }

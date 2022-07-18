@@ -167,7 +167,13 @@ const Navbar = () => {
             <Toolbar className={classes.toolbar}>
                 
         <div className={classes.brandContainer}>
-            <Typography variant='h4'>LOGO</Typography>
+            <Typography variant='h4'
+            style={{
+              fontWeight: 900,
+            }}
+            >
+              POGRAMMER
+            </Typography>
           {/* <img className={classes.image} src={logo} alt="logo" height={30} /> */}
         </div>
         

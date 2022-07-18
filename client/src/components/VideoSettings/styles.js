@@ -129,6 +129,16 @@ export default makeStyles((theme) => ({
       '&:hover': {
         backgroundColor: '#26C099'
       },
-     }
+     },
+
+     overlay: {
+      position: 'absolute',
+      top: '83%',
+      left: '60%',
+      transform: 'translate(-50%, -50%)',
+      display: 'flex',
+      justifyContent: 'space-around',
+      width: "200px"
+    },
       
 }));
