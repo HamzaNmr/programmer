@@ -19,6 +19,7 @@ import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import HardwareOutlinedIcon from '@mui/icons-material/HardwareOutlined';
 import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import useStyles from './styles';
 
 import All from './All';
@@ -209,7 +210,7 @@ const styleReport = {
           <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><WorkOutlineOutlinedIcon/> Major: Web developer</Typography>
           <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><HardwareOutlinedIcon/> Experience: 1 year</Typography>
           <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,marginBottom: '1rem'}}><BallotOutlinedIcon/> Skills: React, js</Typography>
-          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,}}><BallotOutlinedIcon/> Bio: I'm a web developer with some experience in front-end and back-end. i work in React you can say i'am a full stack web developer (MERN)</Typography>
+          <Typography variant='subtitle1'style={{display: 'flex', alignItems: 'center', gap: 3,}}><BookmarkBorderOutlinedIcon/> Bio: I'm a web developer with some experience in front-end and back-end. i work in React you can say i'am a full stack web developer (MERN)</Typography>
 
         </Paper>
 

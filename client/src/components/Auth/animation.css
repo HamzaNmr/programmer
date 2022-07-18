@@ -1,0 +1,26 @@
+.text{
+    position: relative;
+    width: max-content;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #00494D;
+    margin-left: -7rem;
+
+}
+  .text::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #C5E4E7;
+    animation: typer 5s steps(23) forwards;
+    
+}
+
+@keyframes typer {
+    to{
+        left: 100%;
+    }
+}

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { Grid, Typography, Paper, Avatar } from '@material-ui/core';
+import { Grid, Typography, Paper, Avatar, Button } from '@material-ui/core';
 import useStyles from './styles';
 
-
+import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
+import VideocamOffOutlinedIcon from '@mui/icons-material/VideocamOffOutlined';
+import MicOutlinedIcon from '@mui/icons-material/MicOutlined';
 
 import { SocketContext } from '../../SocketContext';
 
@@ -12,6 +14,9 @@ const VideoPlayer = () => {
   const classes = useStyles();
 
   const user = JSON.parse(localStorage.getItem('profile'));
+
+
+  
   
   return (
     <Grid  className={classes.gridContainer}>
@@ -27,6 +32,8 @@ const VideoPlayer = () => {
             {name || 'Name'}
           </Typography>
           <video playsInline muted ref={myVideo} autoPlay className={callAccepted && !callEnded ? classes.videoTwo : classes.video}/>
+          
+          
         </Grid>
 
       </Paper>

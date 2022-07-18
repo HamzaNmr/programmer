@@ -28,7 +28,7 @@ const ProfileCard = () => {
         <CardMedia
           component="img"
           height="140"
-          image="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNZtv3tZBDlzJJ7U6Oon-jgHDNB3UqkRfmsA&usqp=CAU"
           alt="background image"
         />
         <div className={classes.overlay}>
