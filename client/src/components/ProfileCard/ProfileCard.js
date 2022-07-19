@@ -48,14 +48,14 @@ const ProfileCard = () => {
             <Typography variant="body2" className={classes.follow} >
             FOLLOWERS 
             <br/>
-            2
+            0
            </Typography>
             </Grid>
             <Grid item lg={6}>
             <Typography variant="body2"  className={classes.follow}>
             FOLLOWING
             <br/>
-            2
+            0
             </Typography>
             </Grid>
           </Grid>

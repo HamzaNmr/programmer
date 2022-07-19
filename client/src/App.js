@@ -9,6 +9,7 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import VideoCall from './components/VideoCall/VideoCall';
+import Group from './components/Group/Group';
 
 
 
@@ -47,6 +48,7 @@ const App = () => {
                   <Route path="/profile" exact element={<Profile/>} />
                   <Route path="/news" exact element={<News/>} />
                   <Route path="/videoCall" exact element={<VideoCall/>} />
+                  <Route path="/group" exact element={<Group/>} />
                 </Routes>
                 </Container>
         </BrowserRouter>

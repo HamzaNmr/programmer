@@ -9,7 +9,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-
+import { useNavigate } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -33,6 +33,8 @@ const AvatarGroups = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const navigate = useNavigate();
+
   if(!user){
     return <></>
   }
@@ -40,11 +42,11 @@ const AvatarGroups = () => {
   return (
   <div>
     <Paper  onClick={handleOpen} style={{ cursor: 'pointer',padding: '10px 20px', borderRadius: '15px', display:'flex', alignItems: 'center', justifyContent:'center', backgroundColor: "#00494D",}}>
-<AvatarGroup total={24}>
-  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-  <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-  <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
-  <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+<AvatarGroup total={5}>
+  <Avatar alt="Remy Sharp" src="https://ionicframework.com/blog/wp-content/uploads/2019/02/react-beta.png" />
+  <Avatar alt="Travis Howard" src="https://www.php.net/images/meta-image.png" />
+  <Avatar alt="Agnes Walker" src="https://www.mangoitsolutions.com/wp-content/uploads/2022/01/becomeamernstackdeveloper-mobile-300x279.png" />
+  <Avatar alt="Trevor Henderson" src="https://oktob.io/storage/20309/top11.png" />
 </AvatarGroup>
     </Paper>
 
@@ -64,49 +66,57 @@ const AvatarGroups = () => {
             
             <Typography variant='h5'>Etended Groups :</Typography>
             <br/>
-            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
-            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}} onClick={() => navigate('/group', { replace: true})}>
+            <Avatar alt="Trevor Henderson" src="https://ionicframework.com/blog/wp-content/uploads/2019/02/react-beta.png" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
             <div>
-            <Typography variant='h6'>Trevor Henderson</Typography>
+            <Typography variant='h6'>React group</Typography>
             <Typography variant='subtitle2'>front end group</Typography>
             </div>
             </div>
 
             <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
-            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <Avatar alt="Trevor Henderson" src="https://www.php.net/images/meta-image.png" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
             <div>
-            <Typography variant='h6'>Trevor Henderson</Typography>
-            <Typography variant='subtitle2'>front end group</Typography>
+            <Typography variant='h6'>PHP guys</Typography>
+            <Typography variant='subtitle2'>back end group</Typography>
             </div>
             </div>
 
-            <div style={{display: 'flex', alignItems: 'center',  marginBottom: '1rem'}}>
-            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="https://www.mangoitsolutions.com/wp-content/uploads/2022/01/becomeamernstackdeveloper-mobile-300x279.png" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
             <div>
-            <Typography variant='h6'>Trevor Henderson</Typography>
-            <Typography variant='subtitle2'>front end group</Typography>
+            <Typography variant='h6'>MERN</Typography>
+            <Typography variant='subtitle2'>FULL STACK group</Typography>
             </div>
             </div>
 
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="https://oktob.io/storage/20309/top11.png" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>Web developer</Typography>
+            <Typography variant='subtitle2'>web group</Typography>
+            </div>
+            </div>
+
+            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+            <Avatar alt="Trevor Henderson" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1200px-Python.svg.png" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <div>
+            <Typography variant='h6'>python</Typography>
+            <Typography variant='subtitle2'>programming group</Typography>
+            </div>
+            </div>
 
             <Divider style={{marginBlock: '1rem'}}/>
 
 
              <Typography variant='h5'>Recommended Groups :</Typography>
             <br/>
-            <div style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
-            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
-            <div>
-            <Typography variant='h6'>Trevor Henderson</Typography>
-            <Typography variant='subtitle2'>front end group</Typography>
-            </div>
-            </div>
-
+          
             <div style={{display: 'flex', alignItems: 'center',  marginBottom: '1rem'}}>
-            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
+            <Avatar alt="Trevor Henderson" src="https://dev.java/assets/images/java-logo-vert-blk.png" sx={{width: 50, height: 50, marginRight: '1.5rem'}}/>
             <div>
-            <Typography variant='h6'>Trevor Henderson</Typography>
-            <Typography variant='subtitle2'>front end group</Typography>
+            <Typography variant='h6'>power of java</Typography>
+            <Typography variant='subtitle2'>programming group</Typography>
             </div>
             </div>
           </Box>
